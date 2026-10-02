@@ -1,0 +1,97 @@
+#include <iostream>
+#include <iomanip>
+
+// defines the function to convert kilograms to pounds
+int convert_to_pounds(int kilograms) {
+    int pounds = kilograms * 2.20462;
+    return pounds;
+}
+
+// defines the function to convert miles to kilometers
+double miles_to_kilometers(int miles) {
+    double kilometers = miles * 1.60934;
+    return kilometers;
+}
+
+// defines the function to convert Celsius to Fahrenheit
+int celsius_to_fahrenheit(int celsius) {
+    int fahrenheit = celsius * 9 / 5 + 32;
+    return fahrenheit;
+}
+
+int main() {
+    // starts the main loop for the program
+    bool run = true;
+    while (run) {
+
+        // initializes variable for user's choice
+        std::string choice;
+        
+        // displays the menu for conversion choices
+        std::cout << "Choose a conversion: celsius, kilograms, or miles(exit to quit): ";
+        // reads the user's choice for conversion
+        std::cin >> choice;
+        
+        // if user selects celsius
+        if (choice == "celsius") {
+
+            std::cout << "You chose Celsius conversion.\n";
+            // initializes the variable for Celsius input
+            int celsius;
+
+            // prompts the user for Celsius input
+            std::cout << "Enter temperature in Celsius: ";
+            std::cin >> celsius;
+
+            // performs the conversion from Celsius to Fahrenheit
+            int fahrenheit = celsius_to_fahrenheit(celsius);
+
+            // displays the result of the conversion
+            std::cout << "Temperature in Fahrenheit: " << fahrenheit << "\n";
+
+        // if user selects kilograms
+        } else if (choice == "kilograms") {
+
+            std::cout << "You chose kilograms conversion.\n";
+            // initializes the variable for kilograms input
+            int kilograms;
+
+            // prompts the user for kilograms input
+            std::cout << "Enter weight in kilograms: ";
+            std::cin >> kilograms;
+
+            // performs the conversion from kilograms to pounds
+            int pounds = convert_to_pounds(kilograms);
+
+            // displays the result of the conversion
+            std::cout << "Weight in pounds: " << pounds << "\n";
+        
+        // If user selects miles
+        } else if (choice == "miles") {
+
+            std::cout << "You chose miles conversion.\n";
+            // initializes the variable for miles input
+            int miles;
+
+            // prompts the user for miles input
+            std::cout << "Enter distance in miles: ";
+            std::cin >> miles;
+
+            // performs the conversion from miles to kilometers
+            double kilometers = miles_to_kilometers(miles);
+
+            // displays the result of the conversion to 2 decimal places
+            std::cout << "Distance in kilometers: " << std::fixed << std::setprecision(2)
+                << kilometers << "\n";
+
+        // allows the user to exit program
+        }else if (choice == "exit") {
+            run = false;
+        }
+        // handles unknown conversion choices
+        else {
+            std::cout << "Unknown conversion.\n";
+    }
+    }
+    return 0;
+}
